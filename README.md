@@ -17,4 +17,4 @@ As result you will get tile.zip file in root directory containing latest tile pa
 
 [Live Preview][preview]
 
-[preview]: https://material.io/resizer/#device=handset&url=https%3A%2F%2Fnexpaq.github.io%2Ftile-usbflash%2F&width=360
+[preview]: https://material.io/resizer/#device=handset&url=https%3A%2F%2Fnexpaq.github.io%2Ftile-range%2F&width=360
