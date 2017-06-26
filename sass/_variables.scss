@@ -1,0 +1,40 @@
+$main-font: Roboto, Helvetica, Arial, sans-serif;
+
+// SIZES
+$font-size: 16px;
+
+// COLORS
+
+
+// SHADOWS AND OVERLAYS
+$background-gradient-start: #29292C;
+$background-gradient-end: #080708;
+
+
+// Other
+  @mixin buttonColor($color,$bottom) {
+  @include position(relative,null null $bottom 50%);
+  @include transform(translateX(-50%) translateY(-50%));
+  width: 94%;
+  height:56px;
+  background: $color;
+  border-radius: 4px;
+  font-size: 18px;
+  color: #FFFFFF;
+  letter-spacing: 0.64px;
+}
+
+@mixin buttonColorIOS($color,$bottom, $width) {
+  @include position(relative,null null $bottom 25%);
+  @include transform(translateX(-50%) translateY(-50%));
+  width: $width;
+  height:56px;
+  background: $color;
+  border-radius: 4px;
+  font-size: 18px;
+  color: #FFFFFF;
+  letter-spacing: 0.64px;
+  float:left;
+  margin-right: 4px;
+  margin-left: 4px;
+}

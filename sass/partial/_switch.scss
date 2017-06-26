@@ -1,0 +1,49 @@
+.switch {
+  position: absolute;
+  bottom:0px;
+  width:100%;
+ 
+  .start {
+    .button-start {
+      @include buttonColor(#F57C23,12vw);
+      body.platform-ios & {
+      @include buttonColor(#F57C23,8vw);
+      }
+    } 
+  }
+  .stop {
+    display: none;
+
+    .result {
+      position: relative;
+      color: #FFFFFF;
+      text-align: center;
+      font-size:72px;
+      bottom:21vw;
+      left: 30%;
+      @include transform(translateX(-50%) translateY(-50%));
+    }
+    .button-stop {
+      @include buttonColor(#606060,12vw);
+       body.platform-ios & {
+        @include buttonColorIOS(RGBA(0,0,0,0.4),8vw, 46%);
+      }
+    }
+    .button-save {
+      @include buttonColor(#F57C23,14vw);
+      body.platform-ios & {
+        @include buttonColorIOS(#6CB61B,8vw,46%);
+      }
+    }
+  }
+  .ios_buttons {
+    .history_ios{
+      display:none;
+      @include buttonColor(#F57C23,8vw);
+       
+    }
+    .reset {
+      @include buttonColor(RGBA(0,0,0,0.4),12vw);
+    }
+  }
+}

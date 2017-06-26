@@ -1,0 +1,114 @@
+.label {
+  display: block;
+  @include position(absolute,19vw null null null);
+  background-color: white;
+  color: #D8D8D8;
+  font-weight: 300;
+  width:100%;
+  padding-bottom:10px;
+  
+  body.platform-ios & {
+    @include position(absolute,20% null null 1.5vw);
+    width:97%;
+    border-radius: 6px;
+
+  }
+ 
+  
+  table {
+    @include position(relative, 20px null null null);
+    width: 100%;
+    background-color: white;
+    font-size: 16px;
+  }
+
+  th {
+    position:absolute;
+    text-align: center;
+    width: 100%;
+    height:30px;
+    padding-top:10px;
+     #label_title {
+      text-align:center;
+      font-weight: 300;
+      position:relative;
+      border: none;
+      color: #929292;
+      font-size:16px;
+    }
+       &::after{
+      content:""; 
+      background: #D8D8D8; 
+      position: absolute; 
+      bottom: 0; 
+      left: 5%; 
+      height: 1px; 
+      width: 90%;
+    }
+  }
+  tr {
+    height: 30px;
+    padding-bottom:10px;
+  }
+  .name {
+    @include position(relative, 15px null null null);
+    text-align: left;
+    color:#3A3A3A;
+    left:30px;
+    padding-top: 10px;
+  }
+  .value {
+    @include position(relative, 15px null null null);
+    text-align:right; 
+    color:#3A3A3A;
+    right:30px
+  }
+  .discard {
+    display:inline;
+    @include position(relative,null null null 35%);
+    padding-top:50px;
+    font-size:16px;
+    &.active {
+      color:#666666;
+    }
+    body.platform-ios & {
+     visibility:hidden;
+    }
+  }
+  .history {
+    display:none;
+    @include position(relative,null null null 38%);
+    padding-top:50px;
+    font-size:16px;
+    &.active {
+     color:#F57C23;
+    }
+    body.platform-ios & {
+     display:none;
+     padding-top: 15px;
+    }
+  }
+  &.slideout {
+    -webkit-animation: 0.5s forwards slideout;
+    animation: 0.5s forwards slideout;
+   
+    @-webkit-keyframes slideout { from { margin-left:0%;} to { margin-left:100%;}}
+     keyframes slideout { from { margin-left:0%;} to { margin-left:100%;}}
+  }
+
+  &.slideBack {
+      -webkit-animation: 0.5s forwards slideBack;
+    animation: 0.5s forwards slideBack;
+   
+    @-webkit-keyframes slideBack { from { margin-top:-50%;} to { margin-top:0%;}}
+     keyframes slideBack { from { margin-top:-50%;} to { margin-top:0%;}}
+  }
+
+  &.slidein {
+    -webkit-animation: 0.5s forwards slidein;
+    animation: 0.5s forwards slidein;
+   
+    @-webkit-keyframes slidein { from { margin-left:0%;} to { margin-left:-100%;}}
+    keyframes slidein { from { margin-left:0%;} to { margin-left:-100%;}}
+  }
+}

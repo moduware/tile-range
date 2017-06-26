@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="fonts/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <!-- vendor -->
+
+    <!-- nexpaq libs -->
+    <script type="text/javascript" src="js/NexpaqHeader.js"></script>
+    <!-- partials -->
+
+    <!-- screens -->
+
+    <!-- tools-->
+
+    <!-- core -->
+    <script type="text/javascript" src="js/scripts.js"></script>
+  </head>
+  <body>
+    
+    <div id="wrapper" class="wrapper">
+      <div class="settings_panel hidden" id="settings_panel">
+        <div class="unit_box" id="unit_box">
+          <span>Units</span>
+          <input type="radio" name="unit_options" class="meters" id="meters" checked>
+          <label class="unit-meters" for="meters">Meters</label>
+          <input type="radio" name="unit_options" class="feet" id="feet" >
+          <label class="unit-feet" for="feet">Feet</label>
+          <input type="radio" name="unit_options" class="centimeters" id="centimeters">
+          <label class="unit-centimeters" for="centimeters">Centimeters</label>
+          <input type="radio" name="unit_options" class="inches" id="inches" >
+          <label class="unit-inches" for="inches">Inches</label>
+        </div>
+      </div>
+      <div class="general_panel " id="general_panel">
+        <div class="measure distance" id="measure">
+          <div class="measure_panel" id="measure_panel">
+            <button class="measure_button" id="measure_button">Measure</button>
+            <span class="selected-option" id='selected-option'>Distance</span>
+          </div>
+        </div>
+        <div class="label" id="label">
+          <table class="measurement_table">
+            <thead>
+              <th><input type="text" id="label_title" placeholder="Add Label"></th>
+            </thead>
+            <tr>
+              <td class="name">Distance</td>
+              <td class="value">--</td>
+            </tr>
+          </table>
+          <button class="discard" id="discard">DISCARD</button>
+          <button class="history" id="history">SAVE TO HISTORY</button>
+        </div>
+        <div class="switch">
+          <div class="start" id="start">
+            <button class="button-start" id="button-start">START</button>
+          </div>
+          <div class="stop" id="stop">
+            <span class="result"></span>
+            <button class="button-save" id="button-save">SAVE</button>
+            <button class="button-stop" id="button-stop">STOP</button>
+          </div>
+          <div class="ios_buttons hidden" id="ios_buttons">
+            <button class="reset" id="reset">RESET</button>
+            <button class="history_ios" id="history_ios">SAVE TO HISTORY</button>
+        </div>
+      </div>
+    </div>
+    <div class = "overlay"></div>
+    <div class="measure_box hidden" id="measure_box">
+      <span id = "measure_span">Measure</span>
+      <input type="radio" name="measure_options" class="distance" id="distance" checked>
+      <label class="measure-distance" for="distance">Distance</label>
+      <input type="radio" name="measure_options" class="area" id="area" >
+      <label class="measure-area" for="area">Area</label>
+      <input type="radio" name="measure_options" class="volume" id="volume" >
+      <label class="measure-volume" for="volume">Volume</label>
+    </div>
+  </body>
+</html>
