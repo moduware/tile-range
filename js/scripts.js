@@ -48,10 +48,10 @@ function tableCustomize(data) {
 
 //Calculates the Meaurements
 function calculateArea(width,length) {
-	return (width*length).toFixed(2);
+	return (width*length).toFixed(3);
 }
 function calculateVolume(width,length,height) {
-	return (width*length*height).toFixed(2);
+	return (width*length*height).toFixed(3);
 }
 function calculateResult() {
 	if(measurementOption !== "Distance"){
@@ -166,7 +166,7 @@ function nativeDataUpdateHandler(data) {
 	// this solution doesnt rounds it up
 	// lastData = slice(0,(lastData.indexOf("."))+3);
 
-		lastData = (data * calc).toFixed(2);
+		lastData = (data * calc).toFixed(3);
 
 		document.getElementsByClassName("result")[0].textContent = lastData + unit;
 		data = lastReceivedData;
@@ -415,7 +415,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 					for(var i=0; i<= maxRow; i++) {
 						if(table.rows[i].cells[1].hasAttribute("data-value")) {
 							var currentValue = table.rows[i].cells[1].dataset.value;
-							var calcResult = (parseFloat(currentValue) * calc).toFixed(2);
+							var calcResult = (parseFloat(currentValue) * calc).toFixed(3);
 							table.rows[i].cells[1].dataset.value = calcResult;
 							table.rows[i].cells[1].textContent = calcResult + unit;
 						}
