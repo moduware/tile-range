@@ -1,5 +1,7 @@
 /* =========== Helper Functions =====================*/
 
+var GATEWAY_TYPE = 'batpaq';
+
 //Creates rows for the card
 function populateRow(tbody, nameArray) {
 	for (var i=0; i<nameArray.length; i++) {
@@ -160,6 +162,13 @@ function settingsHandler () {
 function nativeDataUpdateHandler(data) {
 	data = parseFloat(data);
 	
+	// we support only batpaq adjustments for now
+	if(GATEWAY_TYPE == 'batpaq') {
+		var slot = Nexpaq.Arguments[1];
+		var delta = laserDistanceAdjustmentsTable['batpaq'][slot];
+		data += delta;
+	}
+
 	meterConverter(unit);
 	
 	if (data != lastReceivedData) {
@@ -203,10 +212,19 @@ function discardHandler() {
 /* =========== ON PAGE LOAD HANDLER ============================*/
 //Data Handler
 document.addEventListener('NexpaqAPIReady', function(event) {
-		Nexpaq.API.Module.addEventListener('DataReceived', function(event) {
+	Nexpaq.API.Module.addEventListener('DataReceived', function(event) {
 		// we don't care about data not related to our module
 		if(event.module_uuid != Nexpaq.Arguments[0]) return;
 		nativeDataUpdateHandler(event.variables.distance);
+	});
+
+	Nexpaq.API.GetCurrentConfiguration(function(config) {
+		var gatewayType = config[0].typeId;
+		if(gatewayType == 'nexpaq.gateway.batpaq' || gatewayType == 'moduware.gateway.modpaq') {
+			GATEWAY_TYPE = 'batpaq';
+		} else {
+			GATEWAY_TYPE = gatewayType;
+		}
 	});
 })
 

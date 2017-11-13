@@ -21,10 +21,11 @@
     <!-- tools-->
 
     <!-- core -->
+    <script type="text/javascript" src="js/adjustmentsTable.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
   </head>
   <body>
-    
+
     <div id="wrapper" class="wrapper">
       <div class="settings_panel hidden" id="settings_panel">
         <div class="unit_box" id="unit_box">
@@ -49,7 +50,7 @@
         <div class="label" id="label">
           <table class="measurement_table">
             <thead>
-              <th><input type="text" id="label_title" placeholder="Add Label"></th>
+              <th><input type="text" id="label_title" placeholder="Add Label" onfocus="this.placeholder=''" onblur="this.placeholder='Add Label'"></th>
             </thead>
             <tr>
               <td class="name">Distance</td>
