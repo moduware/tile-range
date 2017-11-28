@@ -17,12 +17,20 @@
     .result {
       position: relative;
       color: #FFFFFF;
-      text-align: center;
+      text-align: right;
       font-size:72px;
       bottom:21vw;
-      left: 30%;
-      @include transform(translateX(-50%) translateY(-50%));
+
+      margin: 0 0 auto;
+      display: block;
+      padding-right: 2vw;
+      // left: 30%;
+      // @include transform(translateX(-50%) translateY(-50%));
     }
+    .result[data-unit="cm"] {
+      font-size: 60px;
+    }
+
     .button-stop {
       @include buttonColor(#606060,12vw);
        body.platform-ios & {

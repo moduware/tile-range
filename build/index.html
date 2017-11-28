@@ -39,6 +39,13 @@
           <input type="radio" name="unit_options" class="inches" id="inches" >
           <label class="unit-inches" for="inches">Inches</label>
         </div>
+        <div class="offset_box" id="offset_box">
+          <span>Measure from</span>
+          <input type="radio" name="offset_options" class="back" id="back" checked>
+          <label class="unit-back" for="back">Back side</label>
+          <input type="radio" name="offset_options" class="front" id="front" >
+          <label class="unit-front" for="front">Front side</label>
+        </div>
       </div>
       <div class="general_panel " id="general_panel">
         <div class="measure distance" id="measure">
@@ -65,7 +72,7 @@
             <button class="button-start" id="button-start">START</button>
           </div>
           <div class="stop" id="stop">
-            <span class="result"></span>
+            <span class="result" id="result" data-unit="m"></span>
             <button class="button-save" id="button-save">SAVE</button>
             <button class="button-stop" id="button-stop">STOP</button>
           </div>

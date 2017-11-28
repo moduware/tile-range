@@ -1,6 +1,11 @@
 /* =========== Helper Functions =====================*/
 
 var GATEWAY_TYPE = 'batpaq';
+var OFFSET_SIDES = {
+	BACK: 'back',
+	FRONT: 'front'
+};
+var offsetSide = OFFSET_SIDES.BACK;
 
 //Creates rows for the card
 function populateRow(tbody, nameArray) {
@@ -165,7 +170,12 @@ function nativeDataUpdateHandler(data) {
 	// we support only batpaq adjustments for now
 	if(GATEWAY_TYPE == 'batpaq') {
 		var slot = Nexpaq.Arguments[1];
-		var delta = laserDistanceAdjustmentsTable['batpaq'][slot];
+		var delta = 0;
+		if(offsetSide == OFFSET_SIDES.BACK) {
+			delta = laserDistanceAdjustmentsTable['batpaqBack'][slot];
+		} else if(offsetSide == OFFSET_SIDES.FRONT) {
+			delta = laserDistanceAdjustmentsTable['batpaqFront'][slot];
+		}
 		data += delta;
 	}
 
@@ -397,17 +407,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		if(!$settings_panel.classList.contains('hidden')) {
 			selectedUnit = document.querySelector('input[name="unit_options"]:checked');
 			selectedUnitText = document.querySelector('label[for="' + selectedUnit.id +'"]').innerText;
+
+			var resultContainer = document.getElementById('result');
+
 			if (selectedUnitText == "Meters") {
 				newUnit = "m";
-			}
-			if (selectedUnitText == "Feet") {
+			} else if (selectedUnitText == "Feet") {
 				newUnit = "ft";
-			}
-			if (selectedUnitText == "Centimeters") {
+			} else if (selectedUnitText == "Centimeters") {
 				newUnit = "cm";
-			}
-			if (selectedUnitText == "Inches") {
+			} else if (selectedUnitText == "Inches") {
 				newUnit = "in";
+			}
+
+			resultContainer.dataset.unit = newUnit;
+
+			selectedOffset = document.querySelector('input[name="offset_options"]:checked');
+			if(selectedOffset.id == 'back') {
+				offsetSide = OFFSET_SIDES.BACK;
+			} else if(selectedOffset.id == 'front') {
+				offsetSide = OFFSET_SIDES.FRONT;
 			}
 	
 		//Customizes the current table
