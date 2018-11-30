@@ -1908,8 +1908,8 @@ vinyl@^0.5.0:
     replace-ext "0.0.1"
 
 "webview-tile-header@https://github.com/moduware/webview-tile-header":
-  version "1.0.8"
-  resolved "https://github.com/moduware/webview-tile-header#e15b42a01057836f9875ba361d79b0aa863bcf39"
+  version "1.0.10"
+  resolved "https://github.com/moduware/webview-tile-header#c0f2cb0dc687e4ebe418dbafed41ae3b197a2306"
 
 which-module@^1.0.0:
   version "1.0.0"
