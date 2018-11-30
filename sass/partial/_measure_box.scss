@@ -1,5 +1,5 @@
 .measure_box {
-  @include position(fixed,40% null null 50%);
+  @include position(absolute,40% null null 50%);
   @include transform(translateX(-50%) translateY(-50%));
   width: 280px;
   height: 223px;
@@ -57,7 +57,7 @@
 }
 
 body.platform-ios .measure_box {
-  position: fixed;
+  position: absolute;
   top: 17.5%;
   width: 100%;
   height: 25%;
