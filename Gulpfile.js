@@ -27,6 +27,18 @@ gulp.task('build', function() {
 	});
 });
 
+gulp.task('build-tile', function () {
+	if (package.buildFiles == null) {
+		console.error('Build files not declared in package.json');
+		return;
+	}
+	// Removing build folder first
+	rimraf('nexpaq.tile.range', function () {
+		gulp.src(package.buildFiles, { base: '.' })
+			.pipe(gulp.dest('nexpaq.tile.range/'));
+	});
+});
+
 gulp.task('zip', function () {
     return gulp.src(['build/**'])
         .pipe(zip('tile.zip'))

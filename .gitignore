@@ -59,4 +59,5 @@ typings/
 
 #custom
 build/
+nexpaq.tile.range
 tile.zip
