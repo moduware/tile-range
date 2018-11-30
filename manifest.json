@@ -1,11 +1,11 @@
 {
   "id": "nexpaq.tile.range",
   "name": "Laser Distance",
-  "description": "Nexpaq Laser Distance module interface",
+  "description": "Moduware Laser Distance module interface",
 
-  "version": "1.1.6",
+  "version": "1.1.7",
   "changes": "Correct units for volume and area",
-  "minimumAppVersion": "1.0.5",
+  "minimumAppVersion": "1.1.8",
   "modules": [
     "nexpaq.module.range"
   ],
