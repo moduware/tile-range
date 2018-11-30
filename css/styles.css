@@ -21,6 +21,10 @@ button {
   color: #D8D8D8;
   font-weight: 300; }
 
+sup {
+  vertical-align: super;
+  font-size: smaller; }
+
 .hidden, #templates, .app-screen:not(.active) {
   display: none !important; }
 

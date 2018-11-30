@@ -69,11 +69,11 @@ function calculateResult() {
 		if(measurementOption == "Volume") {
 			height = parseFloat($tbody.rows[2].cells[1].dataset.value);
 			result = calculateVolume(length,width,height);
-			$tbody.rows[3].cells[1].textContent = result+unit;
+      $tbody.rows[3].cells[1].innerHTML = result + unit + '<sup>3</sup>';
 			$tbody.rows[3].cells[1].dataset.value = result;
-			} else {
+		} else { // Area
 			result = calculateArea(length,width);
-			$tbody.rows[2].cells[1].textContent = result+unit;
+      $tbody.rows[2].cells[1].innerHTML = result + unit + '<sup>2</sup>';
 			$tbody.rows[2].cells[1].dataset.value = result;
 		}
 	}
@@ -166,7 +166,7 @@ function settingsHandler () {
 //Handles the received Data
 function nativeDataUpdateHandler(data) {
 	data = parseFloat(data);
-	
+
 	// we support only batpaq adjustments for now
 	if(GATEWAY_TYPE == 'batpaq') {
 		var slot = Nexpaq.Arguments[1];
@@ -180,7 +180,7 @@ function nativeDataUpdateHandler(data) {
 	}
 
 	meterConverter(unit);
-	
+
 	if (data != lastReceivedData) {
 	// this solution doesnt rounds it up
 	// lastData = slice(0,(lastData.indexOf("."))+3);
@@ -353,18 +353,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		if (measurementOption == "Distance") {
 			Nexpaq.API.Module.SendCommand(Nexpaq.Arguments[0], 'TurnOffLaser', []);
 			$tbody.rows[currentRow].cells[1].dataset.value = lastData;
-			$tbody.rows[currentRow].cells[1].textContent= lastData + unit;
+      $tbody.rows[currentRow].cells[1].textContent= lastData + unit;
 			$tbody.rows[currentRow].cells[0].style.color = "#3A3A3A"
 		}
 		if (measurementOption == "Area" & currentRow < 2) {
 			$tbody.rows[currentRow].cells[1].dataset.value = lastData;
-			$tbody.rows[currentRow].cells[1].textContent= lastData + unit;
+      $tbody.rows[currentRow].cells[1].textContent= lastData + unit;
 			$tbody.rows[currentRow].cells[0].style.color = "#3A3A3A"
 			currentRow++;
 		}
 		if (measurementOption == "Volume" & currentRow < 3) {
 			$tbody.rows[currentRow].cells[1].dataset.value = lastData;
-			$tbody.rows[currentRow].cells[1].textContent= lastData + unit;
+      $tbody.rows[currentRow].cells[1].textContent = lastData + unit;
 			$tbody.rows[currentRow].cells[0].style.color = "#3A3A3A"
 			currentRow++;
 		}
@@ -428,7 +428,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			} else if(selectedOffset.id == 'front') {
 				offsetSide = OFFSET_SIDES.FRONT;
 			}
-	
+
 		//Customizes the current table
 			//finds the calc ratio for table customization
 			if (newUnit !== unit) {
@@ -445,7 +445,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 					centimeterConverter(newUnit);
 				}
 				unit = newUnit;
-			
+
 				//customizes the table with new unit
 				if ($discard.classList.contains("active")) {
 					var table = document.getElementsByTagName('tbody')[0];
