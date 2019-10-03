@@ -221,7 +221,7 @@ function discardHandler() {
 }
 /* =========== ON PAGE LOAD HANDLER ============================*/
 //Data Handler
-document.addEventListener('NexpaqAPIReady', function(event) {
+document.addEventListener('WebViewApiReady', function(event) {
 	Nexpaq.API.Module.addEventListener('DataReceived', function(event) {
 		// we don't care about data not related to our module
 		if(event.module_uuid != Nexpaq.Arguments[0]) return;
@@ -351,7 +351,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	document.getElementById('button-save').addEventListener('click', function() {
 		$discard.classList.add("active");
 		if (measurementOption == "Distance") {
-			Nexpaq.API.Module.SendCommand(Nexpaq.Arguments[0], 'TurnOffLaser', []);
+			// Nexpaq.API.Module.SendCommand(Nexpaq.Arguments[0], 'TurnOffLaser', []);
 			$tbody.rows[currentRow].cells[1].dataset.value = lastData;
 			$tbody.rows[currentRow].cells[1].textContent= lastData + unit;
 			$tbody.rows[currentRow].cells[0].style.color = "#3A3A3A"
