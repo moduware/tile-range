@@ -1,0 +1,19 @@
+{
+	"id": "nexpaq.tile.template",
+	"name": "Tile Template",
+	"description": "Tile Template Webpack",
+	"versions": {
+		"stable": "1.0.0",
+		"alpha": "1.0.0"
+	},
+	"version": "1.0.0",
+	"changes": "Initail Tile Template with webpack",
+	"minumumAppVersion": "1.1.8 - Update this depending on current app version supported",
+	"modules": [
+		"nexpaq.module.led",
+		"moduware.module.speaker"
+	],
+	"title": "LED",
+	"color": "#40CF9A",
+	"textColor": "white"
+}

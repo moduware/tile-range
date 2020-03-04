@@ -7,7 +7,7 @@ var OFFSET_SIDES = {
 };
 var offsetSide = OFFSET_SIDES.BACK;
 
-//Creates rows for the card
+// Creates rows for the card 
 function populateRow(tbody, nameArray) {
 	for (var i=0; i<nameArray.length; i++) {
 		var new_row = document.createElement('tr');
