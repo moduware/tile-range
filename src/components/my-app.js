@@ -47,6 +47,7 @@ class MyApp extends connect(store)(LitElement) {
 			css`
         :host {
           display: block;
+          background-color: #3a3a3a;
 
           --app-drawer-width: 256px;
 
@@ -183,6 +184,14 @@ class MyApp extends connect(store)(LitElement) {
           [main-title] {
             padding-right: 0px;
           }
+
+        }
+
+        moduware-header {
+          --style-background-color: #3a3a3a;
+          --text-color: white;
+          --back-button-color: white;
+
         }
       `
 		];

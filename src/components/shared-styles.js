@@ -18,7 +18,8 @@ export const SharedStyles = css`
 
   section {
     padding: 24px;
-    background: var(--app-section-odd-color);
+    /* background: var(--app-section-odd-color); */
+    background: #3a3a3a;
   }
 
   section > * {
@@ -28,7 +29,7 @@ export const SharedStyles = css`
   }
 
   section:nth-of-type(even) {
-    background: var(--app-section-even-color);
+    /* background: var(--app-section-even-color); */
   }
 
   h2 {

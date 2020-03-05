@@ -32,6 +32,13 @@ class HomePage extends connect(store)(PageViewElement) {
 		return [
 			SharedStyles,
 			css`
+				:host {
+					height: 100vh;
+				}
+
+				section {
+					height: 100%;
+				}
         h2 {
 					color: red;
         }
