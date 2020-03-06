@@ -25,6 +25,7 @@ import '@polymer/app-layout/app-scroll-effects/effects/waterfall.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 import './icons.js';
 import 'webview-tile-header/webview-tile-header'
+import '@moduware/morph-pages';
 import { registerTranslateConfig, use, translate, get } from "@appnest/lit-translate";
 import * as translation from '../translations/language.js';
 
@@ -140,7 +141,8 @@ class MyApp extends connect(store)(LitElement) {
         }
 
         /* Workaround for IE11 displaying <main> as inline */
-        main {
+        main,
+        morph-pages {
           display: block;
         }
 
@@ -149,11 +151,13 @@ class MyApp extends connect(store)(LitElement) {
           min-height: 100vh;
         }
 
-        .page {
+        :host .page {
           display: none;
+          position: relative;
+          height: 100vh;
         }
 
-        .page[active] {
+        :host .page[active] {
           display: block;
         }
 
@@ -192,6 +196,8 @@ class MyApp extends connect(store)(LitElement) {
           --text-color: white;
           --back-button-color: white;
 
+          margin-top: 24px;
+          /* position: absolute; */
         }
       `
 		];
@@ -205,12 +211,12 @@ class MyApp extends connect(store)(LitElement) {
 				title="${translate('header.title')}">
 			</moduware-header>
       <!-- Main content -->
-      <main role="main" class="main-content">
+      <morph-pages role="main" class="main-content">
         <home-page class="page" ?active="${this._page === 'home-page'}"></home-page>
         <page-one class="page" ?active="${this._page === 'page-one'}"></page-one>
         <page-two class="page" ?active="${this._page === 'page-two'}"></page-two>
         <error-page class="page" ?active="${this._page === 'error-page'}"></error-page>
-      </main>
+      </morph-pages>
     `;
 	}
 

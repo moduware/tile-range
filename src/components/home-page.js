@@ -33,10 +33,12 @@ class HomePage extends connect(store)(PageViewElement) {
 			SharedStyles,
 			css`
 				:host {
-					height: 100vh;
+					/* height: 100vh; */
 				}
 
-				section {
+				/* remove section */
+				section,
+				.wrapper {
 					height: 100%;
 				}
         h2 {
@@ -62,11 +64,11 @@ class HomePage extends connect(store)(PageViewElement) {
 
 	render() {
 		return html`
-      <section>
+      <div id="wrapper" class="wrapper">
 				<h2>${get('home-page.title')}</h2>
 				<button @click="${() => store.dispatch(navigate('/page-one'))}">${get('page-one.title')}</button>
 				<button @click="${() => store.dispatch(navigate('/page-two'))}">${translate('page-two.title')}</button>
-      </section>
+			</div>
     `;
 	}
 
