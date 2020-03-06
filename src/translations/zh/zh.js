@@ -14,7 +14,7 @@ export const zh = {
 	"settings-page": {
 		"title": "Settings Page (Chinese)",
 	},
-	"page-two": {
-		"title": "Page Two (Chinese)",
+	"saved-measurements-page": {
+		"title": "Saved Measurements Page (Chinese)",
 	}
 };

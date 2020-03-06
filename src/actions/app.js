@@ -63,8 +63,8 @@ const loadPage = (page) => (dispatch) => {
 		case 'settings-page':
 			import('../components/settings-page.js');
 			break;
-		case 'page-two':
-			import('../components/page-two.js');
+		case 'saved-measurements-page':
+			import('../components/saved-measurements-page.js');
 			break;
 		default:
 			page = 'error-page';

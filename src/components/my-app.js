@@ -214,7 +214,7 @@ class MyApp extends connect(store)(LitElement) {
       <morph-pages role="main" class="main-content">
         <home-page class="page" ?active="${this._page === 'home-page'}"></home-page>
         <settings-page class="page" ?active="${this._page === 'settings-page'}"></settings-page>
-        <page-two class="page" ?active="${this._page === 'page-two'}"></page-two>
+        <saved-measurements-page class="page" ?active="${this._page === 'saved-measurements-page'}"></saved-measurements-page>
         <error-page class="page" ?active="${this._page === 'error-page'}"></error-page>
       </morph-pages>
     `;

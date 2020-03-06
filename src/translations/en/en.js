@@ -14,7 +14,7 @@ export const en = {
 	"settings-page": {
 		"title": "Settings Page",
 	},
-	"page-two": {
-		"title": "Page Two",
+	"saved-measurements-page": {
+		"title": "Saved Measurements Page",
 	}
 };
