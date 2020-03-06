@@ -11,8 +11,8 @@ export const en = {
 	"home-page": {
 		"title": "Home Page",
 	},
-	"page-one": {
-		"title": "Page One",
+	"settings-page": {
+		"title": "Settings Page",
 	},
 	"page-two": {
 		"title": "Page Two",

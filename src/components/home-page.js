@@ -66,7 +66,7 @@ class HomePage extends connect(store)(PageViewElement) {
 		return html`
       <div id="wrapper" class="wrapper">
 				<h2>${get('home-page.title')}</h2>
-				<button @click="${() => store.dispatch(navigate('/page-one'))}">${get('page-one.title')}</button>
+				<button @click="${() => store.dispatch(navigate('/settings-page'))}">${get('settings-page.title')}</button>
 				<button @click="${() => store.dispatch(navigate('/page-two'))}">${translate('page-two.title')}</button>
 			</div>
     `;

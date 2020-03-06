@@ -11,8 +11,8 @@ export const zh = {
 	"home-page": {
 		"title": "Home Page (Chinese)",
 	},
-	"page-one": {
-		"title": "Page One (Chinese)",
+	"settings-page": {
+		"title": "Settings Page (Chinese)",
 	},
 	"page-two": {
 		"title": "Page Two (Chinese)",

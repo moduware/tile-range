@@ -19,7 +19,7 @@ import './icons.js';
 import { registerTranslateConfig, use, translate, get } from "@appnest/lit-translate";
 import * as translation from '../translations/language.js';
 
-class PageOne extends connect(store)(PageViewElement) {
+class SettingsPage extends connect(store)(PageViewElement) {
 	static get properties() {
 		return {
 			_page: { type: String },
@@ -41,7 +41,7 @@ class PageOne extends connect(store)(PageViewElement) {
 	render() {
 		return html`
       <section>
-				<h2>${get('page-one.title')}</h2>
+				<h2>${get('settings-page.title')}</h2>
       </section>
     `;
 	}
@@ -64,4 +64,4 @@ class PageOne extends connect(store)(PageViewElement) {
 	}
 }
 
-window.customElements.define('page-one', PageOne);
+window.customElements.define('settings-page', SettingsPage);

@@ -60,8 +60,8 @@ const loadPage = (page) => (dispatch) => {
 				// navigating to view1 after my-view1.js is loaded.
 			});
 			break;
-		case 'page-one':
-			import('../components/page-one.js');
+		case 'settings-page':
+			import('../components/settings-page.js');
 			break;
 		case 'page-two':
 			import('../components/page-two.js');
