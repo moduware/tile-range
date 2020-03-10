@@ -19,6 +19,7 @@ import {
   loadLanguageTranslation,
   getPlatform
 } from '../actions/app.js';
+import { settingsIcon } from './icons.js'
 import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-header/app-header.js';
 import '@polymer/app-layout/app-scroll-effects/effects/waterfall.js';
@@ -192,12 +193,16 @@ class MyApp extends connect(store)(LitElement) {
         }
 
         moduware-header {
-          --style-background-color: #3a3a3a;
-          --text-color: white;
-          --back-button-color: white;
+          --style-background-color: rgb(49, 49, 49);
+          --text-color: rgb(216, 216, 216);
+          --back-button-color: rgb(216, 216, 216);
 
           margin-top: 24px;
           /* position: absolute; */
+        }
+
+        moduware-header span[slot="right-placeholder"] svg #settingsIcon {
+          fill: rgb(216, 216, 216);
         }
       `
 		];
@@ -208,7 +213,8 @@ class MyApp extends connect(store)(LitElement) {
       <!-- Webview Header -->
       <moduware-header	
         @back-button-click="${() => store.dispatch(headerBackButtonClicked())}"
-				title="${translate('header.title')}">
+        title="${translate('header.title')}">
+        <span slot="right-placeholder" @click="${() => store.dispatch(navigate('/settings-page'))}">${settingsIcon}</span>
 			</moduware-header>
       <!-- Main content -->
       <morph-pages role="main" class="main-content">
@@ -254,7 +260,11 @@ class MyApp extends connect(store)(LitElement) {
     }
     
     console.log('platform is:', this.platform);
-	}
+  }
+  
+  settingsClickHandler() {
+    console.log('settings icon clicked!');
+  }
 
 	stateChanged(state) {
 		this._page = state.app.page;

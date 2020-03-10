@@ -81,8 +81,21 @@ const updatePage = (page) => {
 	};
 };
 
-export const headerBackButtonClicked = () => (dispatch) => {
-	if (typeof Moduware !== 'undefined') Moduware.API.Exit();
+export const headerBackButtonClicked = () => (dispatch, getState) => {
+	let page = getState().app.page;
+	switch (page) {
+		case 'home-page':
+			console.log('page:', page);
+			if (typeof Moduware !== 'undefined') Moduware.API.Exit();
+			break;
+		case 'saved-measurements-page':
+		case 'settings-page':
+			console.log('page:', page);
+			dispatch(updatePage('home-page'));
+			break;
+		default:
+			console.log('default page', page);
+	}
 };
 
 export const hardwareBackButtonPressed = () => (dispatch) => {
