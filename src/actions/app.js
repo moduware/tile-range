@@ -12,6 +12,9 @@ export const UPDATE_PAGE = 'UPDATE_PAGE';
 export const MODUWARE_API_READY = 'MODUWARE_API_READY';
 export const LOAD_LANGUAGE_TRANSLATION = 'LOAD_LANGUAGE_TRANSLATION';
 export const GET_PLATFORM = 'GET_PLATFORM';
+export const START_BUTTON = 'START_BUTTON';
+export const STOP_BUTTON = 'STOP_BUTTON';
+export const DISTANCE_CHANGED = 'DISTANCE_CHANGED';
 
 // This is a fix to iOS not auto connecting and not finding any devices
 export const initializeModuwareApiAsync = () => async dispatch => {
@@ -34,6 +37,23 @@ export const moduwareApiReady = () => async dispatch => {
 
 	Moduware.API.addEventListener('HardwareBackButtonPressed', () => {
 		dispatch(hardwareBackButtonPressed());
+	});
+
+	Moduware.API.Module.addEventListener('DataReceived', (data) => {
+		// console.log(data);
+		if (data.moduleUuid !== Moduware.Arguments.uuid) return;
+		if (typeof data.variables.distance !== 'undefined') {
+			// console.log('distance', data.variables.distance);
+		}
+	});
+
+	Moduware.v1.Module.addEventListener('MessageReceived', (data) => {
+		if (data.ModuleUuid !== Moduware.Arguments.uuid) return;
+		let distance = data.Message.variables.distance;
+		if (data.Message.dataSource === 'DistanceChanged' && isNaN(parseFloat(distance)) === false) {
+			console.log(distance, parseFloat(distance));
+			dispatch(distanceChanged(distance));
+		}
 	});
 
 	// Moduware.v1.Bluetooth.addEventListener('ConnectionLost', () => {
@@ -85,7 +105,6 @@ export const headerBackButtonClicked = () => (dispatch, getState) => {
 	let page = getState().app.page;
 	switch (page) {
 		case 'home-page':
-			console.log('page:', page);
 			if (typeof Moduware !== 'undefined') Moduware.API.Exit();
 			break;
 		case 'saved-measurements-page':
@@ -98,8 +117,20 @@ export const headerBackButtonClicked = () => (dispatch, getState) => {
 	}
 };
 
-export const hardwareBackButtonPressed = () => (dispatch) => {
-	if (typeof Moduware !== 'undefined') Moduware.API.Exit();
+export const hardwareBackButtonPressed = () => (dispatch, getState) => {
+	let page = getState().app.page;
+	switch (page) {
+		case 'home-page':
+			if (typeof Moduware !== 'undefined') Moduware.API.Exit();
+			break;
+		case 'saved-measurements-page':
+		case 'settings-page':
+			console.log('page:', page);
+			dispatch(updatePage('home-page'));
+			break;
+		default:
+			console.log('default page', page);
+	}
 }
 
 /**
@@ -125,3 +156,22 @@ export const getPlatform = () => (dispatch) => {
 	dispatch({ type: GET_PLATFORM, platform });
 };
 
+export const startButton = () => {
+	if (typeof Moduware !== 'undefined') {
+		Moduware.v1.Module.ExecuteCommand(Moduware.Arguments.uuid, 'StartContinuousMeasurement', []);
+	}
+	return { type: START_BUTTON }
+}
+export const stopButton = () => {
+	if (typeof Moduware !== 'undefined') {
+		Moduware.v1.Module.ExecuteCommand(Moduware.Arguments.uuid, 'TurnOffLaser', []);
+	}
+	return { type: STOP_BUTTON }
+}
+
+export const distanceChanged = (distance) => {
+	return {
+		type: DISTANCE_CHANGED,
+		distance
+	}
+}

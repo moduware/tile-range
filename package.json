@@ -22,19 +22,20 @@
     "test:regenerate_screenshots": "mocha test/integration/screenshots-baseline/regenerate.js --timeout=15000"
   },
   "dependencies": {
-    "lit-translate": "^1.1.20",
     "@appnest/lit-translate": "^1.1.16",
+    "@moduware/morph-button": "^2.0.0",
+    "@moduware/morph-pages": "git+https://github.com/moduware/morph-pages.git#lit-element",
     "@polymer/app-layout": "^3.0.0",
     "@polymer/polymer": "^3.1.0",
     "@webcomponents/webcomponentsjs": "^2.2.4",
     "lit-element": "^2.0.1",
+    "lit-translate": "^1.1.20",
     "pwa-helpers": "^0.9.0",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "webview-tile-header": "git+https://github.com/moduware/webview-tile-header.git#lit",
-    "@moduware/morph-pages": "git+https://github.com/moduware/morph-pages.git#lit-element"
+    "webview-tile-header": "git+https://github.com/moduware/webview-tile-header.git#lit"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",

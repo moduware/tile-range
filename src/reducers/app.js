@@ -13,6 +13,9 @@ import {
 	MODUWARE_API_READY,
 	LOAD_LANGUAGE_TRANSLATION,
 	GET_PLATFORM,
+	START_BUTTON,
+	STOP_BUTTON,
+	DISTANCE_CHANGED,
 } from '../actions/app.js';
 
 const INITIAL_STATE = {
@@ -20,6 +23,8 @@ const INITIAL_STATE = {
 	apiReady: false,
 	language: 'en',
 	platform: '',
+	powerOn: '',
+	distance: '0',
 };
 
 const app = (state = INITIAL_STATE, action) => {
@@ -38,11 +43,26 @@ const app = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				language: action.language
-			}
+			};
 		case GET_PLATFORM:
 			return {
 				...state,
 				platform: action.platform
+			};
+		case START_BUTTON:
+			return {
+				...state,
+				powerOn: true
+			}
+		case STOP_BUTTON:
+			return {
+				...state,
+				powerOn: false
+			};
+		case DISTANCE_CHANGED:
+			return {
+				...state,
+				distance: action.distance
 			}
 		default:
 			return state;
