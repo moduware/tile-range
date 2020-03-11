@@ -3,7 +3,7 @@
  */
 export const zh = {
 	"header": {
-		"title": "Tile Template (Chinese)",
+		"title": "Laser Distance (Chinese)",
 	},
 	"my-app": {
 		"title": "Tile Template (Chinese)",
