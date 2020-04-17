@@ -13,7 +13,7 @@ import { PageViewElement } from './page-view-element.js';
 import { navigate } from '../actions/app.js';
 import { store } from '../store.js';
 import { connect } from 'pwa-helpers/connect-mixin.js';
-import { SharedStyles } from './shared-styles.js';
+import { SharedStyles, PageStyles } from './shared-styles.js';
 import app from '../reducers/app.js';
 import '@moduware/morph-button';
 import './icons.js';
@@ -35,25 +35,20 @@ class HomePage extends connect(store)(PageViewElement) {
 	static get styles() {
 		return [
 			SharedStyles,
+			PageStyles,
 			css`
 				:host {
-					/* height: 100vh; */
+					background-color: green;
 				}
 
-				/* remove section */
 				.wrapper {
+					display: flex;
+					flex-direction: column;
 					height: 100%;
-				
-				}
-
-			
-
-        h2 {
-					color: red;
 				}
 
 				.main-content {
-					
+					flex: 1;
 				}
 				
 				morph-button.start,
@@ -84,12 +79,14 @@ class HomePage extends connect(store)(PageViewElement) {
 	render() {
 		return html`
       <div id="wrapper" class="wrapper">
-				<h2>${get('home-page.title')}</h2>
+
 				<div class="main-content">
 					<h3>Distance: ${this.distance}</h3>
+				
 					<button @click="${() => store.dispatch(navigate('/settings-page'))}">${get('settings-page.title')}</button>
 					<button @click="${() => store.dispatch(navigate('/saved-measurements-page'))}">${translate('saved-measurements-page.title')}</button>
 				</div>
+
 				${this._powerOn ? html`<morph-button class="stop" filled big @click="${this.stopButtonClick}">Stop</morph-button>`
 				: html`<morph-button class="start" filled big @click="${this.startButtonClick}">Start</morph-button>`
 				}

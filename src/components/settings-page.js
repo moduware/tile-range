@@ -31,18 +31,22 @@ class SettingsPage extends connect(store)(PageViewElement) {
 		return [
 			SharedStyles,
 			css`
-        h2 {
-					color: red;
-        }
+        .wrapper {
+					height: 100%;
+				}
+
+				h2 {
+					color: white;
+				}
       `
 		];
 	}
 
 	render() {
 		return html`
-      <section>
+      <div class="wrapper">
 				<h2>${get('settings-page.title')}</h2>
-      </section>
+      </div class="wrapper">
     `;
 	}
 
